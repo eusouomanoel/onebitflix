@@ -4,7 +4,7 @@ import { Episode } from "./Episode";
 import { User } from "./User";
 
 //Relacionamento entre as categorias e cursos
-Category.hasMany(Course)
+Category.hasMany(Course, { as: 'courses' })
 Course.belongsTo(Category)
 Course.hasMany(Episode)
 Episode.belongsTo(Course)

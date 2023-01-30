@@ -1,6 +1,7 @@
 import express from "express" //Importação do Express
 import { adminJs, adminJsRouter } from "./adminjs"
 import { sequelize } from "./database"
+import { router } from "./routes"
 
 const app = express()  //Criação de aplicação de express
 
@@ -10,6 +11,8 @@ app.use(express.static('public'))
 
 // app.use(caminho, rotas)
 app.use(adminJs.options.rootPath, adminJsRouter)
+
+app.use(router)
 
 const PORT = process.env.PORT || 3000  // Ouvir a aplicação com a definição de PORTA
 
