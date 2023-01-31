@@ -1,4 +1,4 @@
-import express from "express" //Importação do Express
+import express, { application } from "express" //Importação do Express
 import { adminJs, adminJsRouter } from "./adminjs"
 import { sequelize } from "./database"
 import { router } from "./routes"
@@ -8,6 +8,7 @@ const app = express()  //Criação de aplicação de express
 // adicione o middleware de arquivos estáticos do express e o router do AdminJS que criamos:
 app.use(express.static('public'))
 
+app.use(express.json()) //middleware para trabalhar com json na requisição
 
 // app.use(caminho, rotas)
 app.use(adminJs.options.rootPath, adminJsRouter)
